@@ -4,7 +4,7 @@ This tool creates Highcharts Maps out of SVG files. The result is an array of pa
 that can be fed to the Highcharts Maps `mapData` option.
 
 ## Usage
-Run the map parser from [GitHub Pages](http://highcharts.github.io/maps-from-svg).
+Run the map parser from [GitHub Pages](https://highcharts.github.io/map-from-svg/).
 
 ## Debugging
 On Mac - from the root directory, `python -m SimpleHTTPServer 8000` then open the
