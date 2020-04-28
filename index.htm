@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "https://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Map</title>
+		<script src="https://code.jquery.com/jquery-1.10.1.js"></script>
+
+		<!-- Include Highcharts -->
+		<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+
+		<!-- Include map-parser stuff -->
+		<script src="map-parser.js"></script>
+		<script src="index.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="index.css" />
+	</head>
+	<body>
+		<h1 style="text-align:center">Highcharts maps from SVG sources</h1>
+		<div style="width: 1200px; margin: auto">
+			<div style="width: 370px;margin-right: 10px;float: left">
+
+				<label for="preset">Load preset: </label>
+				<select id="preset"></select>
+
+				<label style="width: 100%">Online SVG URL or SVG markup:</label>
+				<textarea id="load" style="width: 100%" rows="10" ></textarea>
+
+				<div id="series-setup"></div>
+
+
+				<input type="submit" value="Load" id="load-submit" />
+
+
+
+				<div class="buttons" style="margin-top: 3rem">
+					<a id="view-svg" target="_blank">View original SVG</a>
+					<a id="view-data" href="javascript:;">View Highcharts Maps config</a>
+				</div>
+			</div>
+			<div id="container" style="width: 800px; height: 550px; float: left; overflow: auto"></div>
+
+			<h4>Tips and usage</h4>
+			<p>View the <a href="https://github.com/highcharts/map-parser">readme file</a>.</p>
+		</div>
+	</body>
+</html>
