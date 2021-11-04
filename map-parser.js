@@ -170,39 +170,16 @@ extend(Data.prototype, {
         return arr;
     },
     // Scale the path to fit within a given box and round all numbers
-    roundPaths: function (arr, scale) {
-        var mapProto = seriesTypes.map.prototype, fakeSeries, origSize, transA;
-        fakeSeries = {
-            xAxis: {
-                translate: Axis.prototype.translate,
-                options: {},
-                minPixelPadding: 0
-            },
-            yAxis: {
-                translate: Axis.prototype.translate,
-                options: {},
-                minPixelPadding: 0
-            }
-        };
-        // Borrow the map series type's getBox method
-        mapProto.getBox.call(fakeSeries, arr);
-        origSize = Math.max(fakeSeries.maxX - fakeSeries.minX, fakeSeries.maxY - fakeSeries.minY);
-        scale = scale || 1000;
-        transA = scale / origSize;
-        fakeSeries.xAxis.transA = fakeSeries.yAxis.transA = transA;
-        fakeSeries.xAxis.len = fakeSeries.yAxis.len = scale;
-        fakeSeries.xAxis.min = fakeSeries.minX;
-        fakeSeries.yAxis.min = (fakeSeries.minY + scale) / transA;
+    roundPaths: function (arr) {
         arr.forEach(function (point) {
-            var i, path;
-            point.path = path = mapProto.translatePath.call(fakeSeries, point.path, true);
-            i = path.length;
+            var path = point.path,
+                i = path.length;
+
             while (i--) {
                 if (typeof path[i] === 'number') {
                     path[i] = Math.round(path[i]);
                 }
             }
-            delete point._foundBox;
         });
         return arr;
     },
